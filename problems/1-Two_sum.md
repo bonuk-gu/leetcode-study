@@ -96,3 +96,40 @@ function twoSum(nums: number[], target: number): number[] {
 
 - !는 TypeScript에게 "has()로 존재하는 걸 확인했으니 이 값은 undefined가 아니다"라고 알려줌
 - 배열을 두 번 순회하지 않고 한 번 순회하도록 개선: findNum이 이전에 등장했는지만 체크
+
+## Python
+
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_dict = {}
+        for i in range(len(nums)):
+            new_target = target - nums[i]
+            if new_target in num_dict:
+                return [i, num_dict.get(new_target, 0)]
+            else:
+                num_dict[nums[i]] = i
+
+```
+
+- Feedback
+
+1. range(len(nums))보다 enumerate(nums)를 쓰면 인덱스와 값을 동시에 얻을 수 있어서 더 자연스럽다.
+2. 이미 if new_target in num_dict 로 key의 존재를 확인했기 때문에 num_dict.get(new_target, 0)를 쓸 필요 없이 그냥 num_dict[new_target]로 접근 가능
+3. else 굳이 없어도 됨
+
+## Python 추천 풀이
+
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_dict = {}
+
+        for i, num in enumerate(nums):
+            complement = target - num
+
+            if complement in num_dict:
+                return [num_dict[complement], i]
+
+            num_dict[num] = i
+```
