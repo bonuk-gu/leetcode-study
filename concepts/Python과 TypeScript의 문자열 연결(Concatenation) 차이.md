@@ -101,7 +101,9 @@ return result.join("");
 
 ---
 
-### promlems - String - 15. Zigzag Conversion에서의 예
+### promlems - String - 6. Zigzag Conversion에서의 예
+
+- [6. Zigzag Conversion](<../problems/String/6-Zigzag-Conversion.md)
 
 Row Simulation을 구현할 때 Python에서는 각 row를 문자 배열로 관리하는 것이 좋다.
 
